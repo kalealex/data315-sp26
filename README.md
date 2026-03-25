@@ -29,7 +29,7 @@ We will not be relying on EdTech systems like EdStem. We will use Canvas only to
 
 ### Class sessions
 
-We will hold class **Tuesday and Thursday 3:30 PM - 04:50 PM in ___**.
+We will hold class **Tuesday and Thursday 3:30 PM - 04:50 PM in Ryerson 276**.
 
 ### Office hours
 
@@ -37,8 +37,9 @@ Students seeking help with concepts or coursework should plan to attend office h
 
 | Day of week | Time of day         | Person hosting | Where         |
 | :---------- | :-----------------  | :------------- | :------------ |
+| Wednesday   | 01:00 PM - 04:00 PM | Jiawei         | DSI 112       |
 | Thursday    | 12:00 PM - 3:00 PM  | Alex           | DSI 313       |
-| ________    | __:00 __ - __:00 __ | Jiawei         | _______       |
+
 
 **Office hours begin on March 24 and end on May 12.**
 
