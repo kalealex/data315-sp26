@@ -116,15 +116,39 @@
       .style("transform", `translate(${-margin.left / 2}px, ${chartH / 2}px) rotate(-90deg)`)
       .text("Mean Petal Length");
 
+    let colorScale = d3.scaleOrdinal()
+      .domain(speciesData.map((d) => d.species))
+      .range(["#e15759", "#4e79a7", "#59a14f"]);
+
     d3.select(marks)
       .selectAll("rect")
       .data(speciesData).enter()
       .append("rect")
-      .style("fill", "steelblue")
+      .style("fill", (d) => colorScale(d.species))
       .attr("x", (d) => xScale(d.species))
       .attr("width", xScale.bandwidth())
       .attr("y", (d) => yScale(d.meanPetalLength))
       .attr("height", (d) => yScale(0) - yScale(d.meanPetalLength));
+
+    // legend
+    let legendG = d3.select(marks)
+      .append("g")
+      .attr("transform", `translate(${chartW / 12}, 0)`);
+
+    speciesData.forEach((d, i) => {
+      let row = legendG.append("g")
+        .attr("transform", `translate(0, ${i * 20})`);
+      row.append("rect")
+        .attr("width", 12)
+        .attr("height", 12)
+        .style("fill", colorScale(d.species));
+      row.append("text")
+        .attr("x", 18)
+        .attr("y", 10)
+        .style("font-family", "sans-serif")
+        .style("font-size", "11px")
+        .text(d.species);
+    });
   }
 
   function clearChart() {
