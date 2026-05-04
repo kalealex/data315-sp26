@@ -1,9 +1,5 @@
 // story.js
 
-// unified affordability index
-// function to draw distance from target cities
-// add time as a variable
-
 export const varLabels = {
   median_income: "Median Income",
   median_rent: "Median Rent",
@@ -22,58 +18,100 @@ export const stages = [
     // Layout: "full" (scatter + map + bars)
     id: "intro",
     copy: `
-      Which cities in the US are affordable?
+      Housing affordability varies dramatically across U.S. cities.
+      Let's explore how income, rent, and home prices interact.
     `,
     views: {
-      scatter: false,
+      scatter: {
+        xVar: "median_income",
+        yVar: "median_rent"
+      },
       bars: {
-        xVar: "affordability_index"
+        xVar: "median_income"
+      },
+      map: true
+    },
+    highlightedCities: ["Seattle", "Chicago"],
+    annotations: {
+      scatter: [
+        {
+          x1: 60000, y1: 1200,
+          x2: 130000, y2: 2700,
+          text: "Income–rent trend",
+          direction: "SE"
+        }
+      ],
+      bars: {
+        threshold: 80000,
+        direction: "above",
+        text: "High-income cities"
+      },
+      map: [
+        { city: "Seattle", text: "Tech hub", direction: "E" },
+        { city: "Chicago", text: "Midwest anchor", direction: "SE" }
+      ]
+    }
+  },
+
+  {
+    // Layout: "scatter-bar" (scatter + bars, no map)
+    id: "rent_burden",
+    copy: `
+      Median rent increases with income, but not uniformly.
+      Some cities experience disproportionate rent burdens.
+    `,
+    views: {
+      scatter: {
+        xVar: "median_income",
+        yVar: "rent_burden"
+      },
+      bars: {
+        xVar: "rent_burden"
       },
       map: false
     },
-    highlightedCities: ["Pittsburgh"],
+    highlightedCities: ["San Francisco", "New York", "Austin"],
     annotations: {
+      scatter: [
+        {
+          x1: 60000, y1: 0.23,
+          x2: 120000, y2: 0.28,
+          text: "Typical burden range",
+          direction: "SE"
+        }
+      ],
       bars: {
-        threshold: 0.0188,
-        direction: "below",
-        text: "More affordable cities"
+        threshold: 0.28,
+        direction: "above",
+        text: "High rent burden"
       }
     }
   },
+
   {
-    id: "smaller_cities",
+    // Layout: "scatter-only"
+    id: "price_to_income",
     copy: `
-      Are smaller cities more affordable? It seems like yes.
+      The home-price-to-income ratio reveals where ownership
+      is most out of reach relative to what people earn.
     `,
     views: {
       scatter: {
-        xVar: "population",
-        yVar: "affordability_index"
-      },
-      map: false
-    },
-    highlightedCities: ["Pittsburgh", "Columbus", "Detroit", "St Paul", "Milwaukee", "Minneapolis", "Cleveland"],
-  },
-  {
-    id: "megacities",
-    copy: `
-      Does the presence of a megacity influence the cost of living in nearby cities?
-    `,
-    views: {
-      scatter: {
-        xVar: "population",
-        yVar: "affordability_index"
+        xVar: "median_income",
+        yVar: "home_price_to_income_ratio"
       },
       bars: false,
-      map: true
+      map: false
     },
-    highlightedCities: ["Houston", "Chicago", "Los Angeles", "New York"],
+    highlightedCities: ["San Jose", "Seattle", "Denver"],
     annotations: {
-      map: [
-        { city: "Houston", text: "Tech hub", direction: "E" },
-        { city: "Chicago", text: "Midwest anchor", direction: "SE" },
-        { city: "Los Angeles", text: "Tech hub", direction: "E" },
-        { city: "New York", text: "Midwest anchor", direction: "SE" }
+      scatter: [
+        {
+          x1: 55000, y1: 6,
+          x2: 135000, y2: 6,
+          text: "6× income reference",
+          direction: "NE"
+        }
       ]
     }
   },

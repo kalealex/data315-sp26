@@ -144,6 +144,7 @@
       median_income: +d.median_income,
       median_rent: +d.median_rent,
       median_home_price: +d.median_home_price,
+      affordability_index: ((+d.median_rent + +d.median_home_price / (20 *12)) / 2) / +d.median_income,
       population: +d.population,
 
       latitude: +d.latitude,
@@ -153,6 +154,8 @@
       home_price_to_income_ratio: +d.home_price_to_income_ratio,
       years_to_twenty_percent_down_payment: +d.years_to_twenty_percent_down_payment
     }));
+
+    console.log(data);
 
     const us = await d3.json("states-10m.json");
     const excludeIds = ["02", "15"]; // Alaska, Hawaii (FIPS codes)

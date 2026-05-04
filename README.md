@@ -132,7 +132,7 @@ Tuesday - Project check-ins
 <!-- - each group should visit office hours by this day for a meeting about feedback on their proposal
 - students share minimum viable product -->
 
-- **Project check-ins due May 6!**
+<!-- - **Project check-ins due May 6!** -->
 
 Thursday - Accessibility and non-visual modalities
 
@@ -144,6 +144,8 @@ Thursday - Accessibility and non-visual modalities
 
 Tuesday - Uncertainty visualization
 <!-- - fold in a bit about disclosure tactics and model checking -->
+
+- **Project check-ins due May 13!**
 
 - read: [22 Uncertainty Visualization](http://space.ucmerced.edu/Downloads/publications/Uncertainty_Visualization_Padilla_Kay_Hullman_2022.pdf) (book chapter), [Designing for Interactive Exploratory Data Analysis Requires Theories of Graphical Inference](https://hdsr.mitpress.mit.edu/pub/w075glo6/release/3) (optional)
 
